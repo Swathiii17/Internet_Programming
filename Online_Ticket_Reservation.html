@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Ticket Reservation System</title>
+</head>
+
+<body>
+
+<h1 align="center">ONLINE TICKET RESERVATION SYSTEM</h1>
+<hr>
+
+<h3>Reservation Form</h3>
+
+<form>
+
+<table border="1" cellpadding="8">
+
+<tr>
+    <td>Full Name</td>
+    <td><input type="text" required></td>
+</tr>
+
+<tr>
+    <td>Email</td>
+    <td><input type="email" required></td>
+</tr>
+
+<tr>
+    <td>Phone Number</td>
+    <td><input type="tel" pattern="[0-9]{10}" required></td>
+</tr>
+
+<tr>
+    <td>Gender</td>
+    <td>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+    </td>
+</tr>
+
+<tr>
+    <td>Ticket Type</td>
+    <td>
+        <select>
+            <option>Bus</option>
+            <option>Train</option>
+            <option>Flight</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Source</td>
+    <td><input type="text"></td>
+</tr>
+
+<tr>
+    <td>Destination</td>
+    <td><input type="text"></td>
+</tr>
+
+<tr>
+    <td>Journey Date</td>
+    <td><input type="date"></td>
+</tr>
+
+<tr>
+    <td>Journey Time</td>
+    <td><input type="time"></td>
+</tr>
+
+<tr>
+    <td>Number of Tickets</td>
+    <td><input type="number" min="1" max="10"></td>
+</tr>
+
+<tr>
+    <td>Class</td>
+    <td>
+        <input type="checkbox"> Economy
+        <input type="checkbox"> Business
+        <input type="checkbox"> First Class
+    </td>
+</tr>
+
+<tr>
+    <td>Payment Method</td>
+    <td>
+        <select>
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+            <option>UPI</option>
+            <option>Net Banking</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Remarks</td>
+    <td><textarea rows="4" cols="30"></textarea></td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center">
+        <input type="button" value="Book Ticket"
+        onclick="alert('Ticket Booked Successfully!')">
+        <input type="reset" value="Clear">
+    </td>
+</tr>
+
+</table>
+
+</form>
+
+</body>
+</html>
