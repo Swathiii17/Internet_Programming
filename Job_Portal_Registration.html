@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Job Portal Registration</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+body{
+    background:#f9f1f1;
+}
+.container{
+    width:450px;
+    margin:40px auto;
+    background:#f4b8da;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:darkblue;
+}
+label{
+    font-weight:bold;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+}
+button{
+    width:100%;
+    padding:12px;
+    background:green;
+    color:white;
+    border:none;
+    font-size:18px;
+    cursor:pointer;
+}
+button:hover{
+    background:darkgreen;
+}
+</style>
+<script>
+function validateForm(){
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let phone=document.getElementById("phone").value;
+let password=document.getElementById("password").value;
+let resume=document.getElementById("resume").value;
+
+let namePattern=/^[A-Za-z ]+$/;
+let emailPattern=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+let phonePattern=/^[6-9][0-9]{9}$/;
+let passwordPattern=/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,}$/;
+let resumePattern=/(\.pdf|\.doc|\.docx)$/i;
+if(name==""){
+alert("Enter Name");
+return false;
+}
+if(!namePattern.test(name)){
+alert("Only alphabets allowed in Name");
+return false;
+}
+if(!emailPattern.test(email)){
+alert("Invalid Email");
+return false;
+}
+if(!phonePattern.test(phone)){
+alert("Invalid Mobile Number");
+return false;
+}
+if(!passwordPattern.test(password)){
+alert("Password must contain Uppercase, Lowercase and Number");
+return false;
+}
+if(!resumePattern.exec(resume)){
+alert("Upload PDF/DOC/DOCX Resume");
+return false;
+}
+alert("Registration Successful");
+return true;
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h2>Job Portal Registration</h2>
+<form onsubmit="return validateForm()">
+<label>Full Name</label>
+<input type="text" id="name">
+<label>Email</label>
+<input type="text" id="email">
+<label>Mobile Number</label>
+<input type="text" id="phone">
+<label>Password</label>
+<input type="password" id="password">
+<label>Upload Resume</label>
+<input type="file" id="resume">
+<button type="submit">Register</button>
+</form>
+</div>
+</body>
+</html>
