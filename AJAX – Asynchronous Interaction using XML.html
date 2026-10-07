@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AJAX and XML</title>
+
+<style>
+
+body {
+    font-family: Arial;
+}
+
+button {
+    padding: 10px;
+    background: blue;
+    color: white;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>AJAX and XML Example</h2>
+
+<button onclick="loadData()">
+    Load Student Data
+</button>
+
+<div id="result"></div>
+
+<script>
+
+function loadData() {
+
+    let xmlData =
+    `<students>
+        <student>
+            <name>Esther</name>
+            <course>Computer Science</course>
+        </student>
+    </students>`;
+
+    let blob = new Blob(
+        [xmlData],
+        {type: "application/xml"}
+    );
+
+    let url = URL.createObjectURL(blob);
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET", url, true);
+
+    xhr.onload = function() {
+
+        let xml = xhr.responseXML;
+
+        let name =
+            xml.getElementsByTagName("name")[0]
+            .textContent;
+
+        let course =
+            xml.getElementsByTagName("course")[0]
+            .textContent;
+
+        document.getElementById("result").innerHTML =
+            "<h3>Student Details</h3>" +
+            "Name: " + name + "<br>" +
+            "Course: " + course;
+
+        URL.revokeObjectURL(url);
+    };
+
+    xhr.send();
+}
+
+</script>
+
+</body>
+</html>
