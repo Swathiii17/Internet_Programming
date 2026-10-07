@@ -1,0 +1,47 @@
+<%@ page language="java" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Booking</title>
+</head>
+
+<body>
+
+<h2>Ticket Booking System</h2>
+
+<form method="post">
+
+    Passenger Name:
+    <input type="text" name="name" required>
+    <br><br>
+
+    Destination:
+    <input type="text" name="destination" required>
+    <br><br>
+
+    Number of Tickets:
+    <input type="number" name="tickets" min="1" required>
+    <br><br>
+
+    <input type="submit" value="Book Ticket">
+
+</form>
+
+<%
+if(request.getMethod().equals("POST")) {
+
+    String name = request.getParameter("name");
+    String destination = request.getParameter("destination");
+    String tickets = request.getParameter("tickets");
+
+    out.println("<h3>Ticket Booking Details</h3>");
+    out.println("Passenger: " + name + "<br>");
+    out.println("Destination: " + destination + "<br>");
+    out.println("Tickets: " + tickets + "<br>");
+    out.println("<b>Booking Successful</b>");
+}
+%>
+
+</body>
+</html>
