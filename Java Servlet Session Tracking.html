@@ -1,0 +1,41 @@
+<%@ page language="java" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session Tracking</title>
+</head>
+
+<body>
+
+<h2>Session Tracking using JSP</h2>
+
+<%
+    session.setAttribute("username", "Esther");
+
+    String username =
+        (String)session.getAttribute("username");
+
+    out.println("<h3>Welcome " + username + "</h3>");
+
+    out.println("Session ID: " +
+        session.getId());
+%>
+
+<br><br>
+
+<form method="post">
+    <input type="submit" name="logout" value="Logout">
+</form>
+
+<%
+if(request.getParameter("logout") != null) {
+
+    session.invalidate();
+
+    out.println("<h3>Session Ended</h3>");
+}
+%>
+
+</body>
+</html>
