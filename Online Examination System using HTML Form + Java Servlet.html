@@ -1,0 +1,47 @@
+<%@ page language="java" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Examination</title>
+</head>
+
+<body>
+
+<h2>Online Examination</h2>
+
+<form method="post">
+
+    <p>1. Which language is used to create web pages?</p>
+
+    <input type="radio" name="q1" value="HTML"> HTML
+    <input type="radio" name="q1" value="Java"> Java
+
+    <p>2. Which is used for styling?</p>
+
+    <input type="radio" name="q2" value="CSS"> CSS
+    <input type="radio" name="q2" value="HTML"> HTML
+
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+<%
+if(request.getMethod().equals("POST")) {
+
+    int score = 0;
+
+    if("HTML".equals(request.getParameter("q1")))
+        score++;
+
+    if("CSS".equals(request.getParameter("q2")))
+        score++;
+
+    out.println("<h3>Your Score: " + score + "/2</h3>");
+}
+%>
+
+</body>
+</html>
